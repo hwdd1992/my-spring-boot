@@ -82,13 +82,15 @@ public class DispatcherServletAutoConfiguration {
 
 	@Configuration(proxyBeanMethods = false)
 	@Conditional(DefaultDispatcherServletCondition.class)
-	@ConditionalOnClass(ServletRegistration.class)
-	@EnableConfigurationProperties({ HttpProperties.class, WebMvcProperties.class })
+	@ConditionalOnClass(ServletRegistration.class) // Servlet 3.0 之后支持的 Servlet 动态注册类
+	@EnableConfigurationProperties({ HttpProperties.class, WebMvcProperties.class }) //启用 HttpProperties,WebMvcProperties
 	protected static class DispatcherServletConfiguration {
 
 		@Bean(name = DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)
 		public DispatcherServlet dispatcherServlet(HttpProperties httpProperties, WebMvcProperties webMvcProperties) {
 			DispatcherServlet dispatcherServlet = new DispatcherServlet();
+			//通过配置文件配置一些属性
+			//是否使用 DispatcherServlet 处理 Options 类型的请求
 			dispatcherServlet.setDispatchOptionsRequest(webMvcProperties.isDispatchOptionsRequest());
 			dispatcherServlet.setDispatchTraceRequest(webMvcProperties.isDispatchTraceRequest());
 			dispatcherServlet.setThrowExceptionIfNoHandlerFound(webMvcProperties.isThrowExceptionIfNoHandlerFound());
