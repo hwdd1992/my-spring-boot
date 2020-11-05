@@ -10,7 +10,7 @@
 	<name>Spring Boot Build</name>
 	<description>Spring Boot Build</description>
 	<properties>
-		<revision>2.2.10.BUILD-SNAPSHOT</revision>
+		<revision>2.2.12.BUILD-SNAPSHOT</revision>
 		<main.basedir>${basedir}</main.basedir>
 	</properties>
 	<!-- Most elements are in profiles so they are stripped out during maven-flatten -->
@@ -381,7 +381,7 @@
 				<plugin>
 					<groupId>com.gradle</groupId>
 					<artifactId>gradle-enterprise-maven-extension</artifactId>
-					<version>1.6.3</version>
+					<version>1.6.6</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

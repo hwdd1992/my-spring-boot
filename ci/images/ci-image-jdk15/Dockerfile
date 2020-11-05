@@ -1,9 +1,9 @@
-FROM ubuntu:bionic-20200807
+FROM ubuntu:focal-20201008
 
 ADD setup.sh /setup.sh
 ADD get-jdk-url.sh /get-jdk-url.sh
 ADD get-docker-url.sh /get-docker-url.sh
-RUN ./setup.sh java11
+RUN ./setup.sh java15
 
 ENV JAVA_HOME /opt/openjdk
 ENV PATH $JAVA_HOME/bin:$PATH
